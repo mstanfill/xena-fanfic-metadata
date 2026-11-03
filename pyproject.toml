@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fanfic-metadata-scraper"
+version = "0.2.0"
+description = "Polite metadata scraper for three fan-run Xena fan fiction archives"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "ftfy>=6.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "requests-mock>=1.12",
+]
+notebooks = [
+    "jupyterlab>=4.0",
+]
+
+[project.scripts]
+fanfic-verify-xenafan = "fanfic_scraper.scripts.verify_xenafan:main"
+fanfic-verify-athenaeum = "fanfic_scraper.scripts.verify_athenaeum:main"
+fanfic-verify-academy = "fanfic_scraper.scripts.verify_academy:main"
+fanfic-sample-xenafan = "fanfic_scraper.scripts.run_xenafan_sample:main"
+fanfic-sample-athenaeum = "fanfic_scraper.scripts.run_athenaeum_sample:main"
+fanfic-sample-academy = "fanfic_scraper.scripts.run_academy_sample:main"
+fanfic-enrich-xenafan = "fanfic_scraper.scripts.enrich_xenafan_stories:main"
+
+[tool.setuptools.packages.find]
+include = ["fanfic_scraper*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

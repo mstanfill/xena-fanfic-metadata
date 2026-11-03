@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+.ipynb_checkpoints/
+# Saved pages, the crawl queue and parsed output: never commit these.
+data/
